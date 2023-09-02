@@ -1,0 +1,12 @@
+version: '2'
+services:
+  swaggerui:
+    image: swaggerapi/swagger-ui
+    environment:
+      - DOC_EXPANSION=full
+      - SWAGGER_JSON=/opt/swagger_events.json
+      - DEFAULT_MODELS_EXPAND_DEPTH=3
+    volumes:
+      - /home/andrew/projects/dockers/event_specs_swagger:/opt
+    ports:
+      - 80:8080

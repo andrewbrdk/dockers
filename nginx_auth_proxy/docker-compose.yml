@@ -1,0 +1,23 @@
+version: '2'
+services:
+  application:
+    image: httpd
+    networks:
+      - mynetwork
+
+  nginx:
+    image: nginx-basic-auth
+    ports:
+      - "80:80"
+    depends_on:
+      - application
+    environment: 
+      - FORWARD_HOST=application
+      - FORWARD_PORT=80
+      - BASIC_USERNAME=asdf
+      - BASIC_PASSWORD=zxcv
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:

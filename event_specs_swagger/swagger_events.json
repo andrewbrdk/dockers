@@ -1,0 +1,31 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Events Spec",
+        "version": "1",
+    },
+    "components": {
+        "schemas": {
+            "order-create":{
+                "allOf": [
+                    "$ref": "swagger_events_params.json#/common_fields",
+                    "$ref": "swagger_events_params.json#/booking_params"
+                ]                
+            },
+            "order-payment": {
+                "allOf": [
+                    "$ref": "swagger_events_params.json#/common_fields",
+                    {
+                        "type": "object",
+                        "properties": {
+                            "params": {
+                                "allOf": ["$ref": "swagger_events_params.json#/booking_params"]
+                            }
+                        },
+                        "required": ["params"]
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,6 @@
+psycopg2-binary
+pymysql
+clickhouse-connect
+pandas
+numpy
+cerberus

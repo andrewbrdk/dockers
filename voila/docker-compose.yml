@@ -1,0 +1,28 @@
+version: '2'
+services:
+  voila:
+    image: voila
+    command: voila --no-browser --Voila.ip='0.0.0.0'
+    volumes:
+      - /home/andrew/projects/dockers/voila_nginx/notebooks:/home/voila
+    networks:
+      - mynetwork
+
+  nginx:
+    image: nginx-basic-auth
+    ports:
+      - "8008:80" # http://localhost:8008 ; without http might get an SSL error
+    depends_on:
+      - voila
+    environment: 
+      - FORWARD_HOST=voila
+      - FORWARD_PORT=8866
+      - BASIC_USERNAME=asdf
+      - BASIC_PASSWORD=zxcv
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
+
+

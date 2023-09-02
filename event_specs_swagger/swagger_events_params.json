@@ -1,0 +1,27 @@
+{
+    "common_fields": {
+        "properties": {
+            "user_id": {
+                "type": "integer",
+                "format": "int64"
+            },
+            "device_id": {
+                "type": "string"
+            }
+        },
+        "required": [
+            "user_id", 
+            "device_id"
+        ]
+    },
+    "booking_params": {
+        "properties": {
+            "order_id": {
+                "type": "integer"
+            }
+        },
+        "required": [
+            "order_id"
+        ]
+    }
+}
